@@ -30,8 +30,8 @@ Feature: creating new staff and listing
           And I should see the message as "<msg>"
 
           Examples:
-               | fname   | lname | empno | phno       | email                   | type     | hub     | msg                                     |
-               |         |       |       |            |                         |          |         | Please fill in all the mandatory fields |
+               | fname   | lname | empno | phno       | email                   | type     | hub     | msg                                         |
+               |         |       |       |            |                         |          |         | Please fill in all the mandatory fields     |
                |         | D     | 456   | 8786789878 | bharath.shet@7edge.com  | Teaching | Classes | Please fill in all the mandatory fields     |
                | Bharath | D     |       | 8786789878 | bharath.shet@7edge.com  | Teaching | Classes | Please fill in all the mandatory fields     |
                | Bharath | D     | 456   |            | bharath.shet@7edge.com  | Teaching | Classes | Please fill in all the mandatory fields     |
@@ -42,7 +42,7 @@ Feature: creating new staff and listing
                | Bharath | D     | 456   | 878678     | bharath.shet@7edge.     | Teaching | Classes | Please enter valid details              |
                | Bharath | D     | 456   | 8786789878 | bharath.shet@@7edge.com | Teaching | Classes | Please enter a valid Email Address      |
                | Bharath | D     | 456   | 8786789878 | .shet@7edge.com         | Teaching | Classes | Please enter a valid Email Address      |
-
+               | Nisha   | M     | 666   | 7485784657 | nisha.nayaka@gmail.com  | Teaching | Classes |A user with the email address nisha.nayaka@gmail.com already exists|
 
 
 

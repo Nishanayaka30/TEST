@@ -5,11 +5,12 @@ require('dotenv').config();
 
 Given("I'm on the staff directory page", async function(){
     await new Promise(resolve => setTimeout(resolve, 3000));
-    await global.driver.get(process.env.URL);
+    await global.driver.get(`https://${process.env.URL}`);
     await new Promise(resolve => setTimeout(resolve, 3000));
 
     
 });
+
 
 Then("I click on add staff button", async function(){
     await new Promise(resolve => setTimeout(resolve, 5000));
@@ -18,12 +19,7 @@ Then("I click on add staff button", async function(){
 
 });
 
-/*Given("I'm on the add staff page", async function(){
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    await global.driver.get("https://qa-school.skuteq.net/employee-master/manage-staff/add-staff");
-    await new Promise(resolve => setTimeout(resolve, 3000));
 
-});*/
 
 When("I enter first name as {string}", async function(fname){
     await global.driver.wait(until.elementLocated(By.id('first_name'))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),fname);
