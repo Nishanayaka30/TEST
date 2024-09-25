@@ -50,11 +50,11 @@ Feature: creating new staff and listing
      Scenario Outline: Successfully adding a new staff
           Given I'm on the staff directory page
           Then I click on add staff button
-          When I enter first name as "Bharath"
-          * I enter last name as "D"
-          * I enter employee number as "456"
-          * I enter mobile number as "8786789878 "
-          * I enter email address as "bharath.shet@edge.com"
+          When I enter first name
+          * I enter last name
+          * I enter employee number
+          * I enter mobile number
+          * I enter email address 
           * I select type as "Teaching"
           * I select Main Hub in Manage Roles as "Classes"
           Then I submit Add button

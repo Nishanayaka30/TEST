@@ -8,7 +8,7 @@ require('dotenv').config();
 When("I search the name as {string}", async function(uname){
     await new Promise(resolve => setTimeout(resolve, 2000));
     await global.driver.wait(until.elementLocated(By.css("#search-value"))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),uname);
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
 });
 

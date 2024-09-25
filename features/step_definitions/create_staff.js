@@ -2,6 +2,7 @@
 const { BeforeAll, AfterAll, Given, When, Then} = require('@cucumber/cucumber');
 const { By, Key, Builder, until } = require('selenium-webdriver');
 require('dotenv').config();
+const { faker } = require('@faker-js/faker');
 
 Given("I'm on the staff directory page", async function(){
     await new Promise(resolve => setTimeout(resolve, 3000));
@@ -118,6 +119,39 @@ Then("I should see the message as {string}", async function(message){
     }
     throw new Error("Failed");
     
+});
+
+When("I enter first name", async function(){
+    const first_name=faker.person.firstName();
+    await global.driver.wait(until.elementLocated(By.id('first_name'))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),first_name);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+});
+When("I enter last name", async function(){
+    const last_name=faker.person.lastName();
+    await global.driver.wait(until.elementLocated(By.id('last_name'))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),lname);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+
+});
+
+When("I enter employee number", async function(){
+    let emp_no = faker.string.numeric(3);
+    await global.driver.wait(until.elementLocated(By.id('employee_number'))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),emp_no);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+});
+
+
+When("I enter mobile number", async function(){
+    let phone_no = faker.phone.number(); 
+    await global.driver.wait(until.elementLocated(By.id('mobile_number'))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),phone_no);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+});
+When("I enter email address", async function(){
+    let random_alpha = await faker.string.alphaNumeric(7); // or faker.string.numeric(7)
+    let email_addr = `nisha.nayaka+${random_alpha}@7edge.com`
+    await global.driver.wait(until.elementLocated(By.id('email_address'))).sendKeys(Key.chord(Key.CONTROL,'a',Key.DELETE),email_addr);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
 });
 
 AfterAll(async function () {
